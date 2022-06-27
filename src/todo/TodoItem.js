@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import Context from '../context'
-import { RiCloseCircleLine} from 'react-icons/ri'
+import { RiCloseCircleLine } from 'react-icons/ri'
 
 
 function TodoItem({ todo, onChange }) {
