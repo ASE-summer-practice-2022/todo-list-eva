@@ -4,12 +4,16 @@ import PropTypes from 'prop-types'
 function AddTodo({ onCreate }) {
     const [value, setValue] = useState('')
 
+
+
+    //useEffect -> Хочу его
+
     function changeHandler(event) {
         setValue(event.target.value)
     }
 
     function submitHandler(event) {
-        event.preventDefault()
+        event.preventDefault();
         if (value.trim()) {
             onCreate(value)
             setValue('')
