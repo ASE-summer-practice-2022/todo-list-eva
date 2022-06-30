@@ -1,97 +1,91 @@
+$fonts: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+'Lucida Sans', Arial, sans-serif;
+$beige: #faf6ed;
+$green: #729e6f;
+$dark_green: #3c543b;
+$light_green: #e4f5e1;
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-  'Lucida Sans', Arial, sans-serif;
+  font-family: $fonts;
 }
-
 body {
-  background: #faf6ed;
+  background: $beige;
 }
-
 .todo-app {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 520px;
   min-height: 600px;
-  background: #729e6f;
+  background: $green;
   text-align: center;
   margin: 128px auto;
   border-radius: 10px;
   padding-bottom: 32px;
 }
-
 h1 {
   margin: 32px 0;
-  color: #faf6ed;
+  color: $light_green;
   font-size: 24px;
 }
-
 .complete {
   text-decoration: line-through;
   opacity: 0.4;
 }
-
 .todo-form {
   margin-bottom: 32px;
 }
-
 .todo-input {
   padding: 14px 32px 14px 16px;
   border-radius: 4px 0 0 4px;
-  border: 2px solid #3c543b;
+  border: 2px solid $dark_green;
   outline: none;
   width: 350px;
   background: transparent;
-  color: #faf6ed;
+  color: $beige;
+  &::placeholder {
+    color: rgba(228, 243, 230, 0.8);
+  }
 }
-
-.todo-input::placeholder {
-  color: rgba(228, 243, 230, 0.8);
-}
-
 .todo-button {
   padding: 16px;
   border: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
   outline: none;
-  background: #3c543b;
-  color: #fff;
+  background: $dark_green;
+  color: $beige;
 }
-
 .todo-container {
   display: flex;
   flex-direction: row;
   position: relative;
 }
-
 .todo-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 4px auto;
-  color: #3c543b;
-  background: #e4f5e1;
+  color: $dark_green;
+  background: $light_green;
   padding: 16px;
   border-radius: 5px;
   width: 90%;
 }
-
 .checkbox {
   height: 15px;
   width: 15px;
   margin-right: 8px;
   cursor: pointer;
 }
-
 .delete-icon {
   display: flex;
   align-items: center;
   font-size: 24px;
   cursor: pointer;
   margin-right: 5px;
-  color: #3c543b;
+  color: $dark_green;
 }
