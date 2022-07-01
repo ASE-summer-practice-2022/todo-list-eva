@@ -1,7 +1,8 @@
 import React from 'react'
-import TodoList from './todo/TodoList'
+import TodoList from './components/TodoList'
 import Context from './context'
-import AddTodo from './todo/AddTodo'
+import AddTodo from './components/AddTodo'
+// import CrudClass from './CrudClass'
 
 function App() {
     const [todos, setTodos] = React.useState([])
