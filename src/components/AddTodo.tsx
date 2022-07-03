@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
-import PropTypes from 'prop-types'
 
-function AddTodo({ onCreate }) {
+interface props {
+    onCreate: Function
+}
+
+function AddTodo(props: props) {
     const [value, setValue] = useState('')
 
 
@@ -15,7 +18,7 @@ function AddTodo({ onCreate }) {
     function submitHandler(event) {
         event.preventDefault();
         if (value.trim()) {
-            onCreate(value)
+            props.onCreate(value)
             setValue('')
         }
     }
@@ -34,10 +37,6 @@ function AddTodo({ onCreate }) {
             </form>
         </div>
     )
-}
-
-AddTodo.propTypes = {
-    onCreate: PropTypes.func.isRequired
 }
 
 export default AddTodo

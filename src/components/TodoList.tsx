@@ -1,16 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import TodoItem from './TodoItem'
 
-function TodoList(props) {
+interface todo {
+    id: number;
+    text: string;
+    completed: boolean
+}
+
+interface props {
+    todos: Array<todo>;
+    onToggle: Function;
+}
+
+function TodoList(props: props) {
     return props.todos.map((todo, index) => {
         return <TodoItem todo={todo} key={todo.id} index={index} onChange={props.onToggle} />
     })
-}
-
-TodoList.propTypes = {
-    todos: PropTypes.arrayOf(PropTypes.object).isRequired,
-    onToggle: PropTypes.func.isRequired
 }
 
 export default TodoList
