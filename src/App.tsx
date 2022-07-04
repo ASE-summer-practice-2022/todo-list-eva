@@ -33,14 +33,13 @@ function App() {
     }
 
     return (
-        <Context.Provider value={{ removeTodo }}>
+        <Context.Provider value={{ removeTodo, addTodo, toggleTodo }}>
             <div className='todo-app'>
                 <h1>What's the plan for today?</h1>
-                <AddTodo onCreate={addTodo}/>
+                <AddTodo />
                 <TodoList
                     todos={todos}
                     // onToggle={(e) => toggleTodo(e)} в чем разница
-                    onToggle={toggleTodo}
                 />
             </div>
         </Context.Provider>

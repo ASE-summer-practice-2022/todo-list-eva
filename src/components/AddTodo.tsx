@@ -1,4 +1,6 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
+import {TextField} from "@mui/material";
+import Context from "../context";
 
 interface props {
     onCreate: Function
@@ -7,7 +9,7 @@ interface props {
 function AddTodo(props: props) {
     const [value, setValue] = useState('')
 
-
+    const { addTodo } = useContext(Context)
 
     //useEffect -> Хочу его
 
@@ -18,7 +20,7 @@ function AddTodo(props: props) {
     function submitHandler(event) {
         event.preventDefault();
         if (value.trim()) {
-            props.onCreate(value)
+            addTodo(value)
             setValue('')
         }
     }
@@ -26,14 +28,13 @@ function AddTodo(props: props) {
     return (
         <div>
             <form className='todo-form' onSubmit={submitHandler}>
-                <input
-                    type='text'
-                    placeholder='Enter a task'
+                <TextField
+                    id="outlined-task"
+                    label="Enter a task"
+                    color="success"
                     value={value}
-                    className='todo-input'
                     onChange={changeHandler}
                 />
-                <button className='todo-button'>Add</button>
             </form>
         </div>
     )

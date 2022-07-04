@@ -1,39 +1,24 @@
 import React, { useContext } from 'react'
 import Context from '../context'
-import { RiCloseCircleLine } from 'react-icons/ri'
+import {Checkbox, FormControlLabel} from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
 
-interface todo {
-    id: number;
-    text: string;
-    completed: boolean
-}
-
-interface props {
-    todo: todo;
-    index: number;
-    onChange: Function
-}
-
-function TodoItem(props: props) {
-    const { removeTodo } = useContext(Context)
+function TodoItem(props) {
+    const { removeTodo, toggleTodo } = useContext(Context)
 
     return (
         <div className={props.todo.completed ? 'todo-row complete' : 'todo-row'}>
-            <div>
-                <input
-                    type="checkbox"
-                    checked={props.todo.completed}
-                    onChange={() => props.onChange(props.todo.id)}
-                    className='checkbox'
+             <FormControlLabel
+                    label={props.todo.text}
+                    control={
+                        <Checkbox
+                            checked={props.todo.completed}
+                            onChange={() => toggleTodo(props.todo.id)}
+                            color="success"
+                        />
+                    }
                 />
-                {props.todo.text}
-            </div>
-
-            <RiCloseCircleLine
-                onClick={removeTodo.bind(null, props.todo.id)}
-                className='delete-icon'
-            />
-
+            <DeleteIcon onClick={removeTodo.bind(null, props.todo.id)} className='delete-icon'/>
         </div>
     )
 }
