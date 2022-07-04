@@ -6,7 +6,7 @@ import AddTodo from './components/AddTodo'
 import Todo from './models/todo'
 
 function App() {
-    const [todos, setTodos] = React.useState([])
+    const [todos, setTodos] = React.useState<Todo[]>([])
 
     function toggleTodo(id: string) {
         setTodos(
@@ -26,19 +26,20 @@ function App() {
     }
 
     function addTodo(text: string) {
-        setTodos(todos.concat([{
+        const newTodo : Todo = {
             text: text,
             id: uuidv4(),
             completed: false
-        }]))
+        }
+        setTodos([...todos, newTodo])
     }
 
     return (
-        <Context.Provider value={{ removeTodo, addTodo, toggleTodo }}>
+        <Context.Provider value={{ todos, removeTodo, addTodo, toggleTodo }}>
             <div className='todo-app'>
                 <h1>What's the plan for today?</h1>
                 <AddTodo />
-                <TodoList todos={todos} />
+                <TodoList />
             </div>
         </Context.Provider>
     );

@@ -1,12 +1,13 @@
 import React, {useContext} from 'react'
 import {Checkbox, FormControlLabel} from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Context from "../context";
+import Context, {TodoContextType} from "../context";
+import Todo from '../models/todo'
 
-function TodoList({ todos }) {
-    const { removeTodo, toggleTodo } = useContext(Context)
+function TodoList() {
+    const { todos, removeTodo, toggleTodo } = useContext(Context) as TodoContextType
 
-    return todos.map((todo) =>
+    return todos.map((todo: Todo) =>
         <div className={todo.completed ? 'todo-row complete' : 'todo-row'}>
             <FormControlLabel
                 label={todo.text}

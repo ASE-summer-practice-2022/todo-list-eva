@@ -1,16 +1,16 @@
-import React, {useContext, useState} from 'react'
+import React, {ChangeEvent, useContext, useState} from 'react'
 import {TextField} from "@mui/material";
-import Context from "../context";
+import Context, {TodoContextType} from "../context";
 
 
 function AddTodo() {
     const [value, setValue] = useState('')
 
-    const { addTodo } = useContext(Context)
+    const { addTodo } = useContext(Context) as TodoContextType
 
     //useEffect -> Хочу его
 
-    function changeHandler(event: any) {
+    function changeHandler(event: ChangeEvent<HTMLInputElement>) {
         setValue(event.target.value)
     }
 
