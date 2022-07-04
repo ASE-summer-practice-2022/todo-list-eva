@@ -1,5 +1,5 @@
 @import 'colors.modules';
-@import 'fonts.modules';
+@import 'fonts';
 
 * {
   box-sizing: border-box;
@@ -50,7 +50,6 @@ h1 {
   border-radius: 5px;
   width: 90%;
 }
-
 .delete-icon {
   cursor: pointer;
 }

@@ -2,22 +2,19 @@ import React, {useContext, useState} from 'react'
 import {TextField} from "@mui/material";
 import Context from "../context";
 
-interface props {
-    onCreate: Function
-}
 
-function AddTodo(props: props) {
+function AddTodo() {
     const [value, setValue] = useState('')
 
     const { addTodo } = useContext(Context)
 
     //useEffect -> Хочу его
 
-    function changeHandler(event) {
+    function changeHandler(event: any) {
         setValue(event.target.value)
     }
 
-    function submitHandler(event) {
+    function submitHandler(event: any) {
         event.preventDefault();
         if (value.trim()) {
             addTodo(value)
