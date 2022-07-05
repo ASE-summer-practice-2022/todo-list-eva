@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import TodoList from './components/TodoList'
 import Context from './context'
 import AddTodo from './components/AddTodo'
 import Todo from './models/todo'
+import { Paper, Grid } from "@mui/material";;
 
 function App() {
     const [todos, setTodos] = React.useState<Todo[]>([])
 
     function toggleTodo(id: string) {
         setTodos(
-            todos.map((todo) => {
+            todos.map((todo: Todo) => {
                 if (todo.id === id) {
                     todo.completed = !todo.completed
                 }
@@ -36,11 +37,21 @@ function App() {
 
     return (
         <Context.Provider value={{ todos, removeTodo, addTodo, toggleTodo }}>
-            <div className='todo-app'>
-                <h1>What's the plan for today?</h1>
-                <AddTodo />
-                <TodoList />
-            </div>
+            <Fragment>
+                <Grid container spacing={0}>
+                    <Grid item xs={12} className='paper'>
+                        <h1>What's the plan for today?</h1>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Paper className='paper'>
+                            <AddTodo />
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TodoList />
+                    </Grid>
+                </Grid>
+            </Fragment>
         </Context.Provider>
     );
 }

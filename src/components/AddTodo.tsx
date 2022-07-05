@@ -1,7 +1,6 @@
 import React, {ChangeEvent, useContext, useState} from 'react'
-import {TextField} from "@mui/material";
+import {Button, Input} from "@mui/material";
 import Context, {TodoContextType} from "../context";
-
 
 function AddTodo() {
     const [value, setValue] = useState('')
@@ -23,17 +22,24 @@ function AddTodo() {
     }
 
     return (
-        <div>
-            <form className='todo-form' onSubmit={submitHandler}>
-                <TextField
-                    id="outlined-task"
-                    label="Enter a task"
-                    color="success"
+            <form onSubmit={submitHandler} style={{ display: "flex" }}>
+                <Input
                     value={value}
+                    placeholder="Enter your task"
                     onChange={changeHandler}
+                    color="success"
+                    style={{ width: "90%" }}
+
                 />
+                <Button
+                    type="submit"
+                    variant="contained"
+                    color="success"
+                    style={{ width: "10%"}}
+                >
+                    Add
+                </Button>
             </form>
-        </div>
     )
 }
 
