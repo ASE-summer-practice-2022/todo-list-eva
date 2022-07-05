@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { v4 as uuidv4 } from 'uuid';
 import TodoList from './components/TodoList'
 import Context from './context'
 import AddTodo from './components/AddTodo'
@@ -27,11 +26,7 @@ function App() {
     }
 
     function addTodo(text: string) {
-        const newTodo : Todo = {
-            text: text,
-            id: uuidv4(),
-            completed: false
-        }
+        const newTodo = new Todo(text);
         setTodos([...todos, newTodo])
     }
 

@@ -1,11 +1,13 @@
+import {v4 as uuidv4} from "uuid";
+
 export default class Todo {
     id: string;
     text: string;
     completed: boolean;
 
-    constructor(obj: any) {
-        this.id = obj.id;
-        this.text = obj.text;
-        this.completed = obj.completed;
+    constructor(text: string) {
+        this.id = uuidv4();
+        this.text = text;
+        this.completed = false;
   }
 }

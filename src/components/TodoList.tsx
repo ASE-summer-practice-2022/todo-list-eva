@@ -7,7 +7,7 @@ import Todo from '../models/todo'
 function TodoList() {
     const { todos, removeTodo, toggleTodo } = useContext(Context) as TodoContextType
 
-    return todos.map((todo: Todo) =>
+    return todos.map((todo: Todo, key: any) =>
         <Grid xs={12}>
             <Paper elevation={2} className={todo.completed ? 'todo-row complete' : 'todo-row'}>
                 <FormControlLabel
