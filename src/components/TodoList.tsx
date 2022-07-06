@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React, {useContext} from 'react'
 import {Checkbox, FormControlLabel, Grid, IconButton, Paper} from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Context, {TodoContextType} from "../context";
 import Todo from '../models/todo'
 
 function TodoList() {
-    const { myCRUD } = useContext(Context) as TodoContextType
+    const {myCRUD} = useContext(Context) as TodoContextType
 
     return <div>
         {
@@ -26,7 +26,7 @@ function TodoList() {
                             style={{marginLeft: "auto"}}
                             onClick={() => myCRUD.removeTodo(todo.id)}
                         >
-                            <DeleteIcon className='delete-icon' />
+                            <DeleteIcon className='delete-icon'/>
                         </IconButton>
                     </Paper>
                 </Grid>

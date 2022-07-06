@@ -3,18 +3,21 @@
 
 body {
   background: $beige;
-  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-family: "Yanone Kaffeesatz", sans-serif !important;
 }
-.paper {
+
+.item {
   padding: 20px;
   margin: auto;
   text-align: center;
   width: 35%
 }
+
 h1 {
   margin: auto;
   color: $dark_green;
 }
+
 .todo-row {
   padding: 15px;
   display: flex;
@@ -22,10 +25,12 @@ h1 {
   margin: 10px auto auto;
   width: 30%;
 }
+
 .complete {
   text-decoration: line-through;
   opacity: 0.5;
 }
+
 .delete-icon {
   color: $dark_green;
 }

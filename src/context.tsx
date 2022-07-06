@@ -5,6 +5,6 @@ export type TodoContextType = {
     myCRUD: CRUD;
 };
 
-const Context = React.createContext<TodoContextType| null>(null)
+const Context = React.createContext<TodoContextType | null>(null)
 
 export default Context

@@ -9,5 +9,5 @@ export default class Todo {
         this.id = uuidv4();
         this.text = text;
         this.completed = false;
-  }
+    }
 }

@@ -5,7 +5,7 @@ import Context, {TodoContextType} from "../context";
 function AddTodo() {
     const [value, setValue] = useState('')
 
-    const { myCRUD } = useContext(Context) as TodoContextType
+    const {myCRUD} = useContext(Context) as TodoContextType
 
     //useEffect -> Хочу его
 
@@ -22,24 +22,24 @@ function AddTodo() {
     }
 
     return (
-            <form onSubmit={submitHandler} style={{ display: "flex" }}>
-                <Input
-                    value={value}
-                    placeholder="Enter your task"
-                    onChange={changeHandler}
-                    color="success"
-                    style={{ width: "90%" }}
+        <form onSubmit={submitHandler} style={{display: "flex"}}>
+            <Input
+                value={value}
+                placeholder="Enter your task"
+                onChange={changeHandler}
+                color="success"
+                style={{width: "90%"}}
 
-                />
-                <Button
-                    type="submit"
-                    variant="contained"
-                    color="success"
-                    style={{ width: "10%"}}
-                >
-                    Add
-                </Button>
-            </form>
+            />
+            <Button
+                type="submit"
+                variant="contained"
+                color="success"
+                style={{width: "10%"}}
+            >
+                Add
+            </Button>
+        </form>
     )
 }
 
