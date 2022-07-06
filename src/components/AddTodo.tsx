@@ -5,7 +5,7 @@ import Context, {TodoContextType} from "../context";
 function AddTodo() {
     const [value, setValue] = useState('')
 
-    const { addTodo } = useContext(Context) as TodoContextType
+    const { myCRUD } = useContext(Context) as TodoContextType
 
     //useEffect -> Хочу его
 
@@ -16,7 +16,7 @@ function AddTodo() {
     function submitHandler(event: any) {
         event.preventDefault();
         if (value.trim()) {
-            addTodo(value)
+            myCRUD.addTodo(value)
             setValue('')
         }
     }
