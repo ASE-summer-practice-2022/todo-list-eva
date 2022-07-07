@@ -1,12 +1,12 @@
 import {Button, Input} from "@mui/material";
 import React, {ChangeEvent, useContext, useState} from 'react';
 
-import Context, {TodoContextType} from "../context";
+import Context, {ContextType} from "../context";
 
 function AddTodo() {
   const [value, setValue] = useState('');
 
-  const {myCRUD} = useContext(Context) as TodoContextType;
+  const {store} = useContext(Context) as ContextType;
 
   // useEffect -> Хочу его
 
@@ -17,7 +17,7 @@ function AddTodo() {
   function submitHandler(event: any) {
     event.preventDefault();
     if (value.trim()) {
-      myCRUD.addTodo(value);
+      store.addTodo(value);
       setValue('');
     }
   }

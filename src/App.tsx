@@ -10,10 +10,10 @@ import Todo from './models/todo';
 function App() {
   const [todos, setTodos] = React.useState<Todo[]>([]);
 
-  const myCRUD = new CRUD(todos, setTodos);
+  const store = new CRUD(todos, setTodos);
 
   return (
-    <Context.Provider value={{myCRUD}}>
+    <Context.Provider value={{store}}>
       <Grid container spacing={0}>
         <Grid item xs={12} className='item'>
           <h1>What is the plan for today?</h1>
