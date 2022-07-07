@@ -1,12 +1,11 @@
 import React, {ChangeEvent, useContext, useState} from 'react'
-import {TextField} from "@mui/material";
+import {Button, Input} from "@mui/material";
 import Context, {TodoContextType} from "../context";
-
 
 function AddTodo() {
     const [value, setValue] = useState('')
 
-    const { addTodo } = useContext(Context) as TodoContextType
+    const {myCRUD} = useContext(Context) as TodoContextType
 
     //useEffect -> Хочу его
 
@@ -17,23 +16,30 @@ function AddTodo() {
     function submitHandler(event: any) {
         event.preventDefault();
         if (value.trim()) {
-            addTodo(value)
+            myCRUD.addTodo(value)
             setValue('')
         }
     }
 
     return (
-        <div>
-            <form className='todo-form' onSubmit={submitHandler}>
-                <TextField
-                    id="outlined-task"
-                    label="Enter a task"
-                    color="success"
-                    value={value}
-                    onChange={changeHandler}
-                />
-            </form>
-        </div>
+        <form onSubmit={submitHandler} style={{display: "flex"}}>
+            <Input
+                value={value}
+                placeholder="Enter your task"
+                onChange={changeHandler}
+                color="success"
+                style={{width: "90%"}}
+
+            />
+            <Button
+                type="submit"
+                variant="contained"
+                color="success"
+                style={{width: "10%"}}
+            >
+                Add
+            </Button>
+        </form>
     )
 }
 

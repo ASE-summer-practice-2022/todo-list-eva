@@ -1,13 +1,10 @@
 import React from 'react'
-import Todo from './models/todo'
+import CRUD from './CRUD'
 
 export type TodoContextType = {
-    todos: Todo[];
-    addTodo: (text: string) => void;
-    removeTodo: (id: string) => void;
-    toggleTodo: (id: string) => void;
+    myCRUD: CRUD;
 };
 
-const Context = React.createContext<TodoContextType| null>(null)
+const Context = React.createContext<TodoContextType | null>(null)
 
 export default Context
